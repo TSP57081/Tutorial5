@@ -180,7 +180,7 @@ app.put("/update/:id", (req, res) => {
 
 // GET ID API
 app.get("/user/:id", (req, res) => {
-  const userId = parseInt(req.params.id);
+  const userId = req.params.id;
   if (!users) {
     // Send 500 response if database does not exist
     res.status(500).json({
