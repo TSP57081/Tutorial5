@@ -190,16 +190,16 @@ app.get("/user/:id", (req, res) => {
   } else {
     const user = users.find((user) => user.id === userId);
     console.log;
-    if (user) {
-      res.status(200).json({
-        success: true,
-        user: user,
-      });
-    } else {
+    if (!user) {
       // Set 404 status code for value not found
       res.status(404).json({
         message: "User not found",
         success: false,
+      });
+    } else {
+      res.status(200).json({
+        success: true,
+        user: user,
       });
     }
   }
